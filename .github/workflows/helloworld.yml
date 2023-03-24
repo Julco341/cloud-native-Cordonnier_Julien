@@ -15,5 +15,6 @@ jobs:
     - name: Build image
       run: docker build -t back .
       working-directory: back
-    - name: Dockre login
+      
+    - name: Docker login
       run: docker login -u ${{ secrets.DOCKER_USER }} ghcr.io
