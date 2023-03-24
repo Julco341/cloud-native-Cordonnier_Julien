@@ -10,12 +10,17 @@ jobs:
     permissions: write-all
     env:
       REGISTRY: ghcr.io
-      IMAGE_NAME: ${{lowercase(github.repository)}}
-      ACTOR: ${{lowercase(github.actor)}}
+      IMAGE_NAME: ${{github.repository}}
+      ACTOR: ${{github.actor}}
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      
+    - name: downcase
+      run: |
+       echo "REGISTRY=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+       echo "ACTOR=${GITHUB_ACTOR,,}" >>${GITHUB_ENV}
       
     - name: Build image
       run: docker build -t ${{env.REGISTRY}}/${{env.ACTOR}}/${{env.IMAGE_NAME}}:1.0.0 .
