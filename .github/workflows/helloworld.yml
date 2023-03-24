@@ -19,7 +19,7 @@ jobs:
       
     - name: downcase
       run: |
-       echo "REGISTRY=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+       echo "IMAGE_NAME=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
        echo "ACTOR=${GITHUB_ACTOR,,}" >>${GITHUB_ENV}
       
     - name: Build image
