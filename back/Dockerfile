@@ -1,11 +1,10 @@
 FROM docker.io/maven:adoptopenjdk
 
-LABEL maintainer="Jean-Baptiste D"
-LABEL version="1.0"
-
 COPY pom.xml .
 COPY src ./src
 
 RUN mvn verify
 
-ENTRYPOINT ["java", "-jar", "/target/words.jar"]
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-Xmx8m", "-Xms8m", "-jar", "/target/words.jar"]
