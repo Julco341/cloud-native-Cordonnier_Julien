@@ -13,8 +13,11 @@ jobs:
       uses: actions/checkout@v3
       
     - name: Build image
-      run: docker build -t back .
+      run: docker build -t ghcr.io/Julco341/back:1.0.0 .
       working-directory: back
       
     - name: Docker login
       run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{secrets.DOCKER_PASS}} ghcr.io
+
+    - name : Push the image
+      run : docker push ghcr.io/Julco341/back:1.0.0
