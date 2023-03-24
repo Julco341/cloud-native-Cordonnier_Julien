@@ -10,8 +10,8 @@ jobs:
     permissions: write-all
     env:
       REGISTRY: ghcr.io
-      IMAGE_NAME: ${{github.repository}}
-      ACTOR: ${{github.actor}}
+      IMAGE_NAME: ${{lowercase(github.repository)}}
+      ACTOR: ${{lowercase(github.actor)}}
     
     steps:
     - name: Checkout code
