@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v3
       
     - name: Build image
-      run: docker build -t ghcr.io/julco341/back:1.0.0 .
+      run: docker build -t ghcr.io/julco341/cloud-native-cordonnier_julien/back:1.0.0 .
       working-directory: back
       
     - name: Login to GitHub Container Registry
@@ -24,4 +24,4 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
           
     - name : Push the image
-      run : docker push ghcr.io/julco341/back:1.0.0
+      run : docker push ghcr.io/julco341/cloud-native-cordonnier_julien/back:1.0.0
