@@ -11,3 +11,9 @@ services:
     image: julco341/cloud-native-cordonnier_julien/back:1.0.0
     ports:
     - "8080:8080"
+
+  front:
+     build: front
+     image: julco341/cloud-native-cordonnier_julien/front:1.0.0
+     ports:
+      - 80:80
