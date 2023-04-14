@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+
+  db:
+    build: db
+    image: julco341/cloud-native-cordonnier_julien/db:1.0.0
+
+  words:
+    build: back
+    image: julco341/cloud-native-cordonnier_julien/back:1.0.0
+    ports:
+    - "8080:8080"
